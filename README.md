@@ -1,4 +1,4 @@
-# Kasir "Jajan Yuk" by XII SIJA-A SMK N 2 Depok Sleman
+# Kasir "Jajan Yuk"
 A simple cashier web app with html , css, and javascript that create as a medium for decorating our traditional food booth that held during P5 week 2023 in SMKN 2 Depok Sleman 
 
 ## UI Design
