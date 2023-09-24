@@ -1,0 +1,131 @@
+body{
+    background-color: #FFFCED;
+}
+
+h1{
+    font-family: 'Mochiy Pop P One';
+    color: #FFD600;
+    text-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+    font-size: 2.5rem;
+    margin-top: 1rem;
+}
+
+h5{
+    font-size: 1rem;
+    font-family: 'Amiko';
+    color: #3F3C2C;
+}
+
+header{
+    text-align: center;
+}
+
+.title{
+    margin-top : 3%;
+    font-family: 'Amiko';
+    font-weight: bolder;
+    color: #3F3C2C;
+}
+
+.harga{
+    margin-top: 2%;
+    font-family: 'Amiko';
+    font-weight: bolder;
+    color: #3DA200;
+}
+
+button{
+    font-family: 'Amiko';
+    font-weight: lighter;
+    color: #3F3C2C;
+    background-color: #FFD600;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.foto img{
+    width:14rem;
+    height: 8rem;
+    border-radius: 5px;
+    padding: 0%;
+}
+
+.item{
+    width: fit-content;
+    height: fit-content;
+}
+
+
+.list-container {
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start; 
+    margin-top: 2%;
+    flex-direction: row; 
+}
+
+.list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 24px;
+    row-gap: 24px;
+}
+
+.list .item{
+    text-align: center;
+    background-color: white;
+    padding: 12px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 2rem -1rem #3F3C2C;
+}
+
+.list-container .chart{
+    text-align: center;
+    background-color: white;
+    padding: 12px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 2rem -1rem #3F3C2C;
+    width: 24rem;
+    height: 100%;
+    margin-left: 24px;
+    padding: 16px;
+}
+
+
+.list-container .chart h4{
+    font-family: 'Amiko';
+    text-align: left;
+    margin-top: 0%;
+    color: #3F3C2C;
+}
+
+.total{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total h5 {
+    color: #3F3C2C;
+    text-align: left;
+    margin: 0%;
+}
+
+.total h3 {
+    font-family: 'Amiko';
+    font-weight: bolder;
+    color: #3DA200;
+    text-align: right;
+    margin: 0%;
+}
+
+.bayar{
+    color: white;
+    background-color: #685800;
+    font-weight: bolder;
+}
