@@ -1,94 +1,105 @@
-let list = document.querySelector('.list')
-let listCard = document.querySelector('.citem')
-let total = document.querySelector('.total')
-let quantity = document.querySelector('.quantity')
-let products = [
-    {
-        id: 0,
-        name: 'DAWET SEGER',
-        image: 'dawet.jpeg',
-        price: 5000
-    },
-    {
-        id: 1,
-        name: 'CENIL MUNGIL',
-        image: 'cenil.jpeg',
-        price: 2000
-    },
-    {
-        id: 2,
-        name: 'BAKWAN TELO',
-        image: 'bakwan.jfif',
-        price: 2000
-    },
-    {
-        id: 3,
-        name: 'WAJIK KETAN',
-        image: 'wajik.jpg',
-        price: 2000
-    },
-]
-let listCards = [];
-// fungsi menampilkan list menu
-function initApp(){
-    products.forEach((value, key)=>{
-        let newDiv = document.createElement('div');
-        newDiv.classList.add('item');
-        newDiv.innerHTML = `
-            <div class="foto"><img src="images/${value.image}"/></div>
-            <div class="title">${value.name}</div>
-            <div class="harga">Rp <span id="angka">${value.price.toLocaleString()}</div>
-            <button class="add" onclick="addToCard(${key})">Masukkan Keranjang</button>
-        `;
-        list.appendChild(newDiv);
-    })
+if(document.readyState == 'loading'){
+    document.addEventListener('DOMContentLoaded', ready)
+} else{
+    ready()
 }
-initApp();
-// fungsi menambahkan ke keranjang
-function addToCard(key){
-    if(listCards[key] == null){
-        listCards[key] = products[key];
-        listCards[key].quantity = 1;
-    }
-    reloadCard();
-}
-// fungsi reload keranjang (refresh hitungan)
-function reloadCard(){
-    listCard.innerHTML = '';
-    let count = 0;
-    let totalPrice = 0;
-    listCards.forEach((value, key) => {
-        totalPrice = totalPrice + value.price;
-        count = count + value.quantity;
 
-        if(value != null){
-            let newDiv = document.createElement('li');
-            newDiv.innerHTML = `
-            <div><img src="images/${value.image}"/></div>
-            <div>${value.name}</div>
-            <div>Rp${value.price.toLocaleString()}</div>
-            <div>
-                <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
-                <div class="count">${value.quantity}</div>
-                <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
-            </div>
-            `;
-            listCard.appendChild(newDiv);
+function ready(){
+    var hapusCart = document.getElementsByClassName('delete-button')
+    for (var i = 0; i < hapusCart.length; i++){
+        var button = hapusCart[i]
+        button.addEventListener('click', removeCartItem)            
+    }
+
+    var quantityInputs = document.getElementsByClassName('jumlah')
+    for (var i = 0; i < quantityInputs.length; i++){
+        var input = quantityInputs[i]
+        input.addEventListener('change', quantityChanged)
+    }
+
+    var addToCartButton = document.getElementsByClassName('add')
+    for (var i = 0; i < addToCartButton.length; i++){
+        var input = addToCartButton[i]
+        input.addEventListener('click', addToCartClicked)
+    }  
+
+    document.getElementsByClassName('bayar')[0].addEventListener('click', purchaseClicked)
+}
+
+function purchaseClicked(){
+    var cartItems = document.getElementsByClassName('chart-items')[0]
+    while(cartItems.hasChildNodes()){
+        cartItems.removeChild(cartItems.firstChild)
+    }
+}
+
+function removeCartItem(event){
+    var buttonClicked = event.target;
+    buttonClicked.parentElement.parentElement.remove()
+    UpdateCartTotal()
+}
+
+function quantityChanged(event){
+    var input = event.target;
+    if (isNaN(input.value) || input.value <=0){
+        input.value = 1
+    }
+    UpdateCartTotal()
+}
+
+function addToCartClicked(event){
+    var button = event.target
+    var shopItem = button.parentElement
+    var title = shopItem.getElementsByClassName('title')[0].innerText
+    var price = shopItem.getElementsByClassName('harga')[0].innerText
+    var imageSrc = shopItem.getElementsByClassName('foto')[0].src
+    console.log(price)
+    addItemToCart(title, price, imageSrc)
+    UpdateCartTotal()
+}
+
+function addItemToCart(title, price, imageSrc){
+    var cartRow = document.createElement('div')
+    cartRow.classList.add('cart-item')
+    var cartItems = document.getElementsByClassName('chart-items')[0]
+    var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
+    for (var i = 0; cartItemNames.length; i++){
+        if(cartItemNames[i].innerText == title){
+            alert('Menu ini sudah ditambahkan ke keranjang.')
+            return
         }
-    })
-        total.innerHTML = `<div class="total">
-                            <h5>TOTAL</h5>
-                            <h3>Rp <span id="total">${totalPrice.toLocaleString()}</span></h3>
-                           </div>`;
-        quantity.innerHTML = count;
+    }
+    var cartRowContents = `
+            <div class="cart-item-image">
+                <div class="item-image"><img src=${imageSrc}></div>
+                </div>
+            <div class="cart-item-info">
+                <div class="cart-item-title">${title}</div>
+                <div class="cart-item-price">
+                    <span class="angka">${price}</span>
+                </div>
+            </div>
+            <div class="cart-item-quantity">
+                <input class="jumlah" type="number" value="1">
+                <button class="delete-button">&times</button>
+            </div>`
+        cartRow.innerHTML = cartRowContents
+        cartItems.append(cartRow)
+        cartRow.getElementsByClassName('delete-button')[0].addEventListener('click', removeCartItem)
+        cartRow.getElementsByClassName('jumlah')[0].addEventListener('click', quantityChanged)
 }
 
-function changeQuantity(key, quantity){
-    if(quantity == 0){
-        delete listCards[key];
-    }else{
-        listCards[key].quantity = quantity;
-        listCards[key].price = quantity * products[key].price;
+function UpdateCartTotal(){
+    var cartItemContainer = document.getElementsByClassName('chart-items')[0]
+    var cartRows = cartItemContainer.getElementsByClassName('cart-item')
+    var total = 0
+    for (var i = 0; i < cartRows.length; i++){
+        var cartRow = cartRows[i]
+        var priceElement = cartRow.getElementsByClassName('angka')[0]
+        var quantityElement = cartRow.getElementsByClassName('jumlah')[0]
+        var price = parseFloat(priceElement.innerText.replace('Rp', ''))
+        var quantity = quantityElement.value
+        total = total + (price * quantity)
     }
-    reloadCard();
+    document.getElementsByClassName('total-harga')[0].innerText = total
 }

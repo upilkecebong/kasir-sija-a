@@ -8,7 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Amiko' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Mochiy Pop P One' rel='stylesheet'>
     <link  type="text/css" rel="stylesheet" href="app.css">
-    <link  type="text/css" rel="stylesheet" href="item.css">
+    
     <title>WARUNG | XII-SIJA-A</title>
 </head>
 <body>
@@ -22,61 +22,57 @@
 
     <div class="list-container">
         <div class="list">
-            <!-- <div class="item">
-                <div class="foto"><img src="images/dawet.jpeg"></div>
+            <div class="item">
+                <img class="foto" src="images/dawet.jpeg">
                 <div class="title">DAWET SEGER</div>
-                <div class="harga">Rp <span id="angka">5.000</span></div>
-                <button class="add" onclick="addToCard(0)">Masukkan Keranjang</button>
+                <div class="harga">Rp5000</div>
+                <button class="add">Masukkan Keranjang</button>
             </div>
             <div class="item">
-                <div class="foto"><img src="images/cenil.jpeg"></div>
+                <img class="foto" src="images/cenil.jpeg">
                 <div class="title">CENIL MUNGIL</div>
-                <div class="harga">Rp <span id="angka">2.000</span></div>
-                <button class="add" onclick="addToCard(1)">Masukkan Keranjang</button>
+                <div class="harga">Rp2000</div>
+                <button class="add">Masukkan Keranjang</button>
             </div>
             <div class="item">
-                <div class="foto"><img src="images/bakwan.jfif"></div>
+                <img class="foto" src="images/bakwan.jfif">
                 <div class="title">BAKWAN TELO</div>
-                <div class="harga">Rp <span id="angka">2.000</span></div>
-                <button class="add" onclick="addToCard(2)">Masukkan Keranjang</button>
+                <div class="harga">Rp1500</div>
+                <button class="add">Masukkan Keranjang</button>
             </div>
             <div class="item">
-                <div class="foto"><img src="images/wajik.jpg"></div>
+                <img class="foto" src="images/wajik.jpg">
                 <div class="title">WAJIK KETAN</div>
-                <div class="harga">Rp <span id="angka">2.000</span></div>
-                <button class="add" onclick="addToCard(3)">Masukkan Keranjang</button>
-            </div> -->
+                <div class="harga">Rp2000</div>
+                <button class="add">Masukkan Keranjang</button>
+            </div>
         </div>
         <div class="chart">
             <h4>Keranjang</h4>
             <div class="chart-items">
-                    <li class="cart-item">
-                        <div class="cart-item-image">
-                            <div class="item-image"><img src="images/wajik.jpg"></div>
-                        </div>
-                        <div class="cart-item-info">
-                            <div class="cart-item-title">WAJIK KETAN</div>
-                            <div class="cart-item-price">Rp <span class="angka">1500</span></div>
-                        </div>
-                        <div class="cart-item-quantity">
-                            <input type="number" class="jumlah" value="1" min="1" max="20">
-                            <!-- ini nati max nya di ganti sesuai jumlah yg di pake di kelas
-                            dawet 75, wajik 20, cenil 30, bakwan 30 -->
-                            <button class="delete-button">X</button>
-                        </div>
-                    </li>
             </div>
             <div class="chart-footer">
                 <div class="total">
                     <h5>TOTAL</h5>
-                    <h3>Rp<span id="total">0</span></h3>
+                    <h3>Rp<span class="total-harga">0</span></h3>
                 </div>
-                <button class="bayar" onclick="bayar()">BAYAR</button>
+                <button class="bayar" id="myBtn" onclick="bayar()">BAYAR</button>
             </div>
         </div>  
     </div>
 
+    <div id="myModal" class="modal">
 
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+                <h1 class="penutup">Terima Kasih<br>&<br>Selamat Menikmati</h1>
+            <a class="agree">SAMA-SAMA</a>
+        </div>
+      
+    </div>
+
+    <script src="modal.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
