@@ -48,6 +48,11 @@ button{
     transition: 0.3s;
 }
 
+button:hover {
+    background-color: #3DA200;
+    color: white;
+}
+
 .foto img{
     width:14rem;
     height: 8rem;
@@ -128,4 +133,91 @@ button{
     color: white;
     background-color: #685800;
     font-weight: bolder;
+}
+
+ul .citem{
+    padding: 0 0 0 0;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 4px 4px;
+    border-radius: 5px;
+    margin-bottom: 24px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.item-image img{
+    width:8rem;
+    height: 4.5rem;
+    border-radius: 5px;
+    margin-right: 2%;
+}
+
+.cart-item-info {
+    flex: 1;
+    text-align: left;
+    padding-left: 15px;
+}
+
+.cart-item-title {
+    font-family: 'Amiko';
+    font-weight: bolder;
+    color: #3F3C2C;
+}
+
+.cart-item-price {
+    font-family: 'Amiko';
+    font-weight: bolder;
+    color: #3DA200;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-quantity button{
+    font-family: 'Amiko';
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #ff3c00;
+    border: none;
+    border-radius: 20%;
+    width: 2.4rem;
+    height: 2.4rem;
+    margin: 0 5px;
+}
+
+.cart-item-quantity .delete-button:hover {
+    background-color: #ffbf00;
+}
+
+.delete-button {
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.fa-trash {
+    margin-right: 0px;
+    color: #3F3C2C;
+}
+
+input{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 5px;
+    border: 1px solid #3F3C2C;
+    text-align: center;
+    font-family: 'Amiko';
+    font-weight: bolder;
+    color: #3F3C2C;
 }

@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/all.min.css">
     <link href='https://fonts.googleapis.com/css?family=Amiko' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Mochiy Pop P One' rel='stylesheet'>
     <link  type="text/css" rel="stylesheet" href="app.css">
+    <link  type="text/css" rel="stylesheet" href="item.css">
     <title>WARUNG | XII-SIJA-A</title>
 </head>
 <body>
@@ -47,9 +50,19 @@
         <div class="chart">
             <h4>Keranjang</h4>
             <div class="chart-items">
-                <ul class="citem"></ul>
-                <!-- nanti belanjaannya di sini kalo ga ada belanjaannya ya natr
-                di tulis "Keranjang kamu kosong, ayo jajan dulu!" -->
+                    <li class="cart-item">
+                        <div class="cart-item-image">
+                            <div class="item-image"><img src="images/wajik.jpg"></div>
+                        </div>
+                        <div class="cart-item-info">
+                            <div class="cart-item-title">WAJIK KETAN</div>
+                            <div class="cart-item-price">Rp <span class="angka">1500</span></div>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <input type="number" class="jumlah" value="1" min="1" max="20">
+                            <button class="delete-button">X</button>
+                        </div>
+                    </li>
             </div>
             <div class="chart-footer">
                 <div class="total">
