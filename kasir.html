@@ -62,7 +62,7 @@
                             <input type="number" class="jumlah" value="1" min="1" max="20">
                             <!-- ini nati max nya di ganti sesuai jumlah yg di pake di kelas
                             dawet 75, wajik 20, cenil 30, bakwan 30 -->
-                            <button class="delete-button">X</button>
+                            <button class="delete-button">&times;</button>
                         </div>
                     </li>
             </div>
@@ -71,12 +71,24 @@
                     <h5>TOTAL</h5>
                     <h3>Rp<span id="total">0</span></h3>
                 </div>
-                <button class="bayar" onclick="bayar()">BAYAR</button>
+                <button class="bayar" id="myBtn" onclick="bayar()">BAYAR</button>
             </div>
         </div>  
     </div>
 
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+                <h1 class="penutup">Terima Kasih<br>&<br>Selamat Menikmati</h1>
+            <a class="agree">SAMA-SAMA</a>
+        </div>
+      
+    </div>
+
 
     <script src="app.js"></script>
+    <script src="modal.js"></script>
 </body>
 </html>
