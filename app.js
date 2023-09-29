@@ -114,6 +114,8 @@ function UpdateCartTotal() {
       total += price * quantity;
     }
   }
-
+  document.getElementById("agree").addEventListener("click", function () {
+    location.reload(); // Reloads the current page
+  });
   document.getElementsByClassName("total-harga")[0].innerText = total;
 }
